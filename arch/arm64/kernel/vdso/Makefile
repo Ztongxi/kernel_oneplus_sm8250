@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
 #
+asflags-y += -fno-integrated-as
+ccflags-y += -fno-integrated-as
 # Building a vDSO image for AArch64.
 #
 # Author: Will Deacon <will.deacon@arm.com>

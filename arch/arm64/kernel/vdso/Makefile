@@ -12,8 +12,7 @@ ARCH_REL_TYPE_ABS := R_AARCH64_JUMP_SLOT|R_AARCH64_GLOB_DAT|R_AARCH64_ABS64
 include $(srctree)/lib/vdso/Makefile
 
 obj-vdso := vgettimeofday.o note.o sigreturn.o
-ccflags-y += -fno-integrated-as
-asflags-y += -fno-integrated-as
+CFLAGS_vgettimeofday.o = -O2 -mcmodel=tiny -g0 -fno-asynchronous-unwind-tables
 # Build rules
 targets := $(obj-vdso) vdso.so vdso.so.dbg
 obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
